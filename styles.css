@@ -4,6 +4,8 @@
 
 canvas {
     display: block;
+    max-width: 100vw;
+    max-height: 100vh;
 }
 
 .container {
@@ -15,9 +17,9 @@ canvas {
 }
 
 #loadImage {
-    max-width: 75vw;
-    max-height: 75vh;
-    border-radius: 5%;
+    max-width: 100vw;
+    max-height: 100vh;
+    
     cursor: pointer;
 }
 

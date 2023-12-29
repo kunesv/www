@@ -1,11 +1,13 @@
 document.getElementById('fileInput').addEventListener('change', function (e) {
     var canvas = document.getElementById('myCanvas');
+    canvas.classList.remove('hidden')
+    
     var ctx = canvas.getContext('2d');
 
     var img = new Image();
     img.src = URL.createObjectURL(e.target.files[0]);
 
-    img.onload = function () {
+    img.onload = function () {        
         document.getElementById('loadImage').classList.add('hidden')
 
         var ratio = 1;
@@ -27,13 +29,14 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
         canvas.width = width;
         canvas.height = height;
 
+        console.log('A',width,height)
 
         ctx.translate(width/2, height/2);
         ctx.drawImage(img, -width/2, -height/2, width, height);
 
         var rotationCount = 0;
         
-        canvas.addEventListener('click', function (e) {
+        canvas.addEventListener('mouseup', function (e) {
             rotationCount++;
 
             ratio = 1;
