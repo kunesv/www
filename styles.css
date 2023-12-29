@@ -6,6 +6,7 @@ canvas {
     display: block;
     max-width: 100vw;
     max-height: 100vh;
+    cursor: pointer;
 }
 
 .container {
@@ -24,7 +25,5 @@ canvas {
 }
 
 #fileInput {
-    position: absolute;
-    top: -200px;
-    visibility: hidden;
+    display: none;
 }

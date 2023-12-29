@@ -29,14 +29,22 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
         canvas.width = width;
         canvas.height = height;
 
-        console.log('A',width,height)
-
         ctx.translate(width/2, height/2);
         ctx.drawImage(img, -width/2, -height/2, width, height);
 
+        var dataURL = canvas.toDataURL('image/jpeg', 0.25);
+        var newImage = new Image();
+        newImage.src = dataURL;
+
+        newImage.onload = function () {
+            canvas.width = newImage.width;
+            canvas.height = newImage.height;
+            ctx.drawImage(newImage, 0, 0, newImage.width, newImage.height);
+        }
+
         var rotationCount = 0;
         
-        canvas.addEventListener('mouseup', function (e) {
+        canvas.addEventListener('click', function (e) {
             rotationCount++;
 
             ratio = 1;
@@ -79,10 +87,20 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
 
             ctx.rotate(Math.PI/2 * rotationCount);
             ctx.drawImage(img, -width/2, -height/2, width, height);
+
+            dataURL = canvas.toDataURL('image/jpeg', 0.25);
+            newImage = new Image();
+            newImage.src = dataURL;
+            newImage.onload = function () {
+                canvas.width = newImage.width;
+                canvas.height = newImage.height;
+                ctx.drawImage(newImage, 0, 0, newImage.width, newImage.height);
+            }
         });
+
+        
     };
 });
-
 document.getElementById('loadImage').addEventListener('click', function (e) {
     document.getElementById('fileInput').click();
 });
