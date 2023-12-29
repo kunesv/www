@@ -7,6 +7,8 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
     var img = new Image();
     img.src = URL.createObjectURL(e.target.files[0]);
 
+    var quality = .05;
+
     img.onload = function () {        
         document.getElementById('loadImage').classList.add('hidden')
 
@@ -32,7 +34,7 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
         ctx.translate(width/2, height/2);
         ctx.drawImage(img, -width/2, -height/2, width, height);
 
-        var dataURL = canvas.toDataURL('image/jpeg', 0.25);
+        var dataURL = canvas.toDataURL('image/jpeg', quality);
         var newImage = new Image();
         newImage.src = dataURL;
 
@@ -88,7 +90,7 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
             ctx.rotate(Math.PI/2 * rotationCount);
             ctx.drawImage(img, -width/2, -height/2, width, height);
 
-            dataURL = canvas.toDataURL('image/jpeg', 0.25);
+            dataURL = canvas.toDataURL('image/jpeg', quality);
             newImage = new Image();
             newImage.src = dataURL;
             newImage.onload = function () {
