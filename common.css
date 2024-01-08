@@ -18,6 +18,7 @@ html {
 html, body {
     margin: 0;
     padding: 0;
+    height: 100vh;
 }
 
 main, article, header, footer {
@@ -29,7 +30,7 @@ p {
 }
 
 body {
-    /* background-color: var(--col-drkblue); */
+    background-image: linear-gradient(to bottom, #000, #111);
     line-height: var(--mod);
 }
 
