@@ -1,0 +1,75 @@
+html {
+    font: 16px Arial, sans-serif;
+
+    --mod: 1.618rem;
+    --mod-half: 0.809rem;
+    --mod-double: 3.236rem;
+    --mod-quarter: 0.405rem;
+    --mod-onenhalf: 2.427rem;
+
+    --col-white: white;
+    --col-red: #f03e25;
+    --col-ylw: #f9f66e;
+    --col-drkylw: #fbbd25;
+    --col-blue: #21087f;
+    --col-drkblue: #1e184c;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+main, article, header, footer {
+    display: block;
+}
+
+p {
+    margin: 0;
+}
+
+body {
+    /* background-color: var(--col-drkblue); */
+    line-height: var(--mod);
+}
+
+#wrapper {
+    display: flex;
+    justify-content: center;
+    
+}
+
+@media (min-width: 520px) {
+    #wrapper {
+        padding: 0 var(--mod-double);
+    }
+}
+
+#content {
+    display: block;
+    flex: 0 1 calc(15 * var(--mod));
+    margin-top: var(--mod-double);
+}
+
+#content > header {
+    height: calc(15 * var(--mod));
+    background: no-repeat url("xyndel-logo-1.svg") center;
+    background-size: auto 100%;
+    /* border-radius: 50%; */
+    /* box-shadow: var(--mod-quarter) var(--mod-half) var(--mod) rgba(0,0,0,.25); */
+}
+
+#content > main > header {
+    font-size: var(--mod);
+    line-height: var(--mod-double);
+    padding: var(--mod-quarter) var(--mod-half);
+}
+
+#content > main {
+    padding: var(--mod-onenhalf) var(--mod-half);
+    color: var(--col-white);
+}
+
+#contact-form {
+    text-align: center;
+}
